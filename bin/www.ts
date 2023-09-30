@@ -6,10 +6,10 @@
 
 import app from "../app";
 
-// use import instead of require
-// const debug = require("debug")("api-example:server");
 import debug from "debug";
 import { createServer } from "http";
+
+const mydebug = debug("express-example:server");
 
 /**
  * Get port from environment and store in Express.
@@ -89,5 +89,5 @@ function onListening() {
     }
 
     const bind = typeof addr === "string" ? "pipe " + addr : "port " + addr.port;
-    debug("Listening on " + bind);
+    mydebug("Listening on " + bind);
 }
