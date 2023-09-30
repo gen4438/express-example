@@ -1,8 +1,9 @@
-import createError from "http-errors";
 import path from "path";
+
 import cookieParser from "cookie-parser";
-import logger from "morgan";
 import express from "express";
+import createError from "http-errors";
+import logger from "morgan";
 
 import indexRouter from "./routes/index";
 import usersRouter from "./routes/users";
@@ -24,22 +25,19 @@ app.use("/users", usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-    next(createError(404));
+  next(createError(404));
 });
 
 // error handler
-app.use(function (
-    err: any,
-    req: express.Request,
-    res: express.Response,
-) {
-    // set locals, only providing error in development
-    res.locals.message = err.message;
-    res.locals.error = req.app.get("env") === "development" ? err : {};
+// eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
+app.use(function (err: any, req: any, res: any, next: any) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get("env") === "development" ? err : {};
 
-    // render the error page
-    res.status(err.status || 500);
-    res.render("error");
+  // render the error page
+  res.status(err.status || 500);
+  res.render("error");
 });
 
 export default app;
