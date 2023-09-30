@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "ts-node ./bin/www.ts",
-    "dev": "nodemon ./bin/www.ts",
+    "start": "ts-node ./app.ts",
+    "dev": "nodemon ./app.ts",
     "lint:eslint": "eslint .",
     "lint:prettier": "prettier --check .",
-    "lint": "yarn lint:eslint && yarn lint:prettier",
+    "lint": "yarn lint:prettier && yarn lint:eslit",
     "fix:eslint": "eslint --fix .",
     "fix:prettier": "prettier --write .",
     "fix": "yarn fix:prettier && yarn fix:eslint"

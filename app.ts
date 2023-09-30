@@ -9,10 +9,7 @@ import indexRouter from "./routes/index";
 import usersRouter from "./routes/users";
 
 const app = express();
-
-// view engine setup
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "pug");
+const port = 3000;
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -40,4 +37,6 @@ app.use(function (err: any, req: any, res: any, next: any) {
   res.render("error");
 });
 
-export default app;
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`);
+});
